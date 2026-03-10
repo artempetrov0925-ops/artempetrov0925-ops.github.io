@@ -1,4 +1,4 @@
-## Bug Report 3
+## Bug Report 9
 
 **Title:** Broken image displayed in the featured products section
 
