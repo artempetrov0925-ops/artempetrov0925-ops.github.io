@@ -1,4 +1,4 @@
-## Bug Report 4
+## Bug Report 6
 
 **Title:** Submit button overlaps form text on mobile resolution
 
