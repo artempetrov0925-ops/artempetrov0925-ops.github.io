@@ -1,4 +1,4 @@
-## Bug Report 8
+## Bug Report 4
 
 **Title:** Dropdown menu does not close after selecting an option
 
