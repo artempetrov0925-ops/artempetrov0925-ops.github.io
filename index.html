@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Петров Артем Николаевич — IT Profile</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --line: #dbe3ef;
+      --line-strong: #c9d4e6;
+      --text: #0f172a;
+      --muted: #55637a;
+      --soft: #6f7f98;
+      --accent: #295fce;
+      --accent-soft: #eaf1ff;
+      --ok: #1f9d6b;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      --radius-xl: 22px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", "Roboto", "Arial", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 0%, #e8f0ff 0%, transparent 40%),
+        radial-gradient(circle at 92% 0%, #edf2ff 0%, transparent 45%),
+        var(--bg);
+      line-height: 1.45;
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 20px 34px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
+
+    .hero {
+      padding: 28px 30px 24px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -120px;
+      top: -180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #dbe8ff 0%, rgba(219, 232, 255, 0) 72%);
+      pointer-events: none;
+    }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .title {
+      color: var(--muted);
+      font-size: clamp(0.98rem, 2vw, 1.15rem);
+      font-weight: 500;
+    }
+
+    .hero-summary {
+      margin: 14px 0 18px;
+      max-width: 900px;
+      color: #273348;
+      font-size: 0.98rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-chip {
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #22324a;
+      font-size: 0.9rem;
+      background: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 315px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .sidebar, .content {
+      display: grid;
+      gap: 16px;
+    }
+
+    .side-card {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-head {
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1e3a76;
+      border: 1px solid var(--line-strong);
+      background: linear-gradient(145deg, #eff4ff, #ffffff);
+    }
+
+    .name-small {
+      margin: 0;
+      font-size: 1.08rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #cceadf;
+      background: #f1fbf7;
+      color: #0f8052;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ok);
+    }
+
+    .mini-title {
+      margin: 0 0 10px;
+      color: #1d2b42;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: #2f405b;
+      font-size: 0.92rem;
+    }
+
+    .list li { position: relative; padding-left: 14px; }
+    .list li::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #90a7cc;
+      position: absolute;
+      left: 0;
+      top: 0.58em;
+    }
+
+    .main-card {
+      padding: 20px 22px;
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 1.02rem;
+      letter-spacing: 0.01em;
+    }
+
+    .section-title .label {
+      color: #6b7d98;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .text {
+      margin: 0;
+      color: #2e3d56;
+      font-size: 0.96rem;
+    }
+
+    .chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: #f9fbff;
+      color: #1b2b45;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.84rem;
+      font-weight: 500;
+    }
+
+    .chip.blue {
+      background: var(--accent-soft);
+      border-color: #cfe0ff;
+      color: #1f4ca3;
+    }
+
+    .exp-grid,
+    .portfolio-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .exp-item,
+    .repo-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      background: #fff;
+    }
+
+    .exp-item h4,
+    .repo-card h4 {
+      margin: 0 0 8px;
+      font-size: 0.98rem;
+    }
+
+    .exp-item ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #30415e;
+      font-size: 0.9rem;
+      display: grid;
+      gap: 4px;
+    }
+
+    .repo-meta {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #6680a8;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #5f84d6;
+      display: inline-block;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .traits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .trait {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #fbfdff;
+      color: #2d3f5c;
+      font-size: 0.88rem;
+    }
+
+    .activity {
+      padding: 20px 22px;
+    }
+
+    .activity-grid {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(26, minmax(8px, 1fr));
+      gap: 4px;
+    }
+
+    .cell {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      background: #eef3fb;
+    }
+
+    .cell.l1 { background: #dde8fb; }
+    .cell.l2 { background: #c4d7fa; }
+    .cell.l3 { background: #9dbaf2; }
+
+    .footer {
+      margin-top: 16px;
+      padding: 18px 22px;
+      display: grid;
+      gap: 10px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: linear-gradient(130deg, #fff, #f9fbff);
+      box-shadow: var(--shadow);
+    }
+
+    .cta {
+      color: #28436f;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    @media (max-width: 960px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { order: 2; }
+      .content { order: 1; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      :root { --bg: #fff; }
+      body {
+        background: #fff;
+        font-size: 10pt;
+      }
+      .page {
+        max-width: none;
+        padding: 8mm;
+      }
+      .card,
+      .side-card,
+      .main-card,
+      .footer {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+      .layout { grid-template-columns: 33% 1fr; }
+      .hero,
+      .main-card,
+      .side-card,
+      .footer { border-radius: 10px; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero card">
+      <div class="hero-top">
+        <h1>Петров Артем Николаевич</h1>
+        <div class="title">Junior IT Specialist / Manual QA Tester / Usability Tester / AI Tools Specialist</div>
+      </div>
+      <p class="hero-summary">
+        Начинающий IT-специалист с высокой технической базой и практическим опытом в обслуживании ПК,
+        модерации цифровых сообществ и работе с AI-инструментами. Ориентирован на старт карьеры в Manual QA,
+        Usability Testing и смежных направлениях, где важны внимательность, системный подход и стабильное качество.
+      </p>
+      <div class="contact-row">
+        <div class="contact-chip">📍 Вологда, Россия</div>
+        <div class="contact-chip">💼 Полностью удалённо</div>
+        <div class="contact-chip">📞 +7 911 523-01-40</div>
+        <div class="contact-chip">✉️ artempetrov0925@gmail.com</div>
+        <div class="contact-chip">💬 Telegram: @it_was_easy</div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <section class="side-card profile-head">
+          <div class="avatar">AP</div>
+          <h2 class="name-small">Петров Артем Н.</h2>
+          <span class="status">Open to work</span>
+        </section>
+
+        <section class="side-card">
+          <h3 class="mini-title">Контакты</h3>
+          <ul class="list">
+            <li>Телефон: +7 911 523-01-40</li>
+            <li>Email: artempetrov0925@gmail.com</li>
+            <li>Telegram: @it_was_easy</li>
+            <li>Формат: удалённо</li>
+          </ul>
+        </section>
+
+        <section class="side-card">
+          <h3 class="mini-title">Ключевые направления</h3>
+          <ul class="list">
+            <li>Manual QA</li>
+            <li>Usability Testing</li>
+            <li>Game QA</li>
+            <li>AI Prompting</li>
+            <li>Data Annotation</li>
+          </ul>
+        </section>
+
+        <section class="side-card">
+          <h3 class="mini-title">Языки</h3>
+          <ul class="list">
+            <li>Русский — родной</li>
+            <li>Английский — базовый</li>
+            <li>Документация — с переводчиком</li>
+          </ul>
+        </section>
+
+        <section class="side-card">
+          <h3 class="mini-title">OS / Environment</h3>
+          <ul class="list">
+            <li>Windows 7 / 8 / 10 / 11</li>
+            <li>Базовое знакомство с Linux</li>
+          </ul>
+        </section>
+      </aside>
+
+      <main class="content">
+        <section class="main-card">
+          <h3 class="section-title"><span>О себе</span><span class="label">Profile</span></h3>
+          <p class="text">
+            Имею более 14 лет активного опыта взаимодействия с ПК и цифровыми продуктами. В работе опираюсь на
+            аккуратность, логическое мышление и устойчивое внимание к деталям. Уверенно чувствую себя в задачах,
+            где важны повторяемость процессов, проверка качества интерфейсов и поиск несоответствий.
+            Интересуюсь профессиональным развитием в Manual QA, usability-проверках, game testing и задачах на стыке с AI.
+          </p>
+        </section>
+
+        <section class="main-card">
+          <h3 class="section-title"><span>Ключевые навыки</span><span class="label">Core Skills</span></h3>
+          <div class="chip-grid">
+            <span class="chip">Установка Windows</span>
+            <span class="chip">Установка драйверов</span>
+            <span class="chip">Диагностика ПК</span>
+            <span class="chip">Сборка ПК</span>
+            <span class="chip">Troubleshooting</span>
+            <span class="chip">Manual testing</span>
+            <span class="chip">Exploratory testing</span>
+            <span class="chip">Usability review</span>
+            <span class="chip">Basic HTML</span>
+            <span class="chip">Figma</span>
+            <span class="chip">Photoshop</span>
+            <span class="chip">Excel / Google Sheets</span>
+            <span class="chip">Telegram moderation</span>
+          </div>
+        </section>
+
+        <section class="main-card">
+          <h3 class="section-title"><span>AI-инструменты</span><span class="label">AI Stack</span></h3>
+          <div class="chip-grid">
+            <span class="chip blue">ChatGPT</span>
+            <span class="chip blue">Claude</span>
+            <span class="chip blue">Grok</span>
+            <span class="chip blue">Midjourney</span>
+            <span class="chip blue">Leonardo</span>
+            <span class="chip blue">Flux</span>
+            <span class="chip blue">Stable Diffusion</span>
+            <span class="chip blue">Runway</span>
+            <span class="chip blue">ElevenLabs</span>
+          </div>
+        </section>
+
+        <section class="main-card">
+          <h3 class="section-title"><span>Практический опыт</span><span class="label">Hands-on Practice</span></h3>
+          <div class="exp-grid">
+            <article class="exp-item">
+              <h4>Частный ремонт и обслуживание ПК</h4>
+              <ul>
+                <li>Установка Windows и драйверов</li>
+                <li>Диагностика аппаратных неисправностей</li>
+                <li>Замена комплектующих</li>
+                <li>Сборка и настройка ПК под задачи пользователя</li>
+                <li>Выездная помощь и консультации</li>
+              </ul>
+            </article>
+            <article class="exp-item">
+              <h4>Модерация Telegram-сообществ</h4>
+              <ul>
+                <li>Контроль спама и соблюдения правил</li>
+                <li>Коммуникация с пользователями</li>
+                <li>Работа с большим потоком сообщений</li>
+                <li>Поддержание порядка и структуры обсуждений</li>
+              </ul>
+            </article>
+            <article class="exp-item">
+              <h4>Практика работы с AI-сервисами</h4>
+              <ul>
+                <li>Эксперименты с генеративными моделями</li>
+                <li>Формирование и улучшение промптов</li>
+                <li>Тестирование интерфейсов AI-платформ</li>
+                <li>Сравнение ответов и результатов разных моделей</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="main-card">
+          <h3 class="section-title"><span>QA / Portfolio Blocks</span><span class="label">Practice Projects</span></h3>
+          <div class="portfolio-grid">
+            <article class="repo-card">
+              <h4>Bug Reports Practice</h4>
+              <p class="text">Тренировочные баг-репорты с базовой QA-структурой: шаги, ожидаемый и фактический результат, приоритет.</p>
+              <div class="repo-meta"><span class="dot"></span> QA Practice</div>
+            </article>
+            <article class="repo-card">
+              <h4>Test Checklist</h4>
+              <p class="text">Чек-лист для ручного тестирования сайта: навигация, формы, валидация, адаптивность, базовые сценарии.</p>
+              <div class="repo-meta"><span class="dot"></span> Manual Testing</div>
+            </article>
+            <article class="repo-card">
+              <h4>Usability Review</h4>
+              <p class="text">Анализ интерфейса и удобства использования с фокусом на читаемость, UX-потоки и снижение ошибок пользователя.</p>
+              <div class="repo-meta"><span class="dot"></span> UX / UI</div>
+            </article>
+            <article class="repo-card">
+              <h4>Game Testing Notes</h4>
+              <p class="text">Наблюдения по UX и игровым интерфейсам: удобство HUD, логика экранов, понятность и последовательность действий.</p>
+              <div class="repo-meta"><span class="dot"></span> Game QA</div>
+            </article>
+          </div>
+        </section>
+
+        <section class="two-col">
+          <article class="main-card">
+            <h3 class="section-title"><span>Дополнительный опыт</span><span class="label">Game / UX Context</span></h3>
+            <p class="text">
+              14+ лет опыта PC-гейминга (включая CS2, Dota 2, Red Dead Redemption 2 и другие проекты).
+              Это дало практическое понимание пользовательского поведения, игровых интерфейсов и
+              качества игрового опыта с точки зрения конечного пользователя.
+            </p>
+          </article>
+
+          <article class="main-card">
+            <h3 class="section-title"><span>Образование</span><span class="label">Education</span></h3>
+            <ul class="list" style="font-size:0.93rem;">
+              <li>Колледж — программирование (2 года)</li>
+              <li>Среднее образование — 9 классов</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="main-card">
+          <h3 class="section-title"><span>Личные качества</span><span class="label">Strengths</span></h3>
+          <div class="traits">
+            <div class="trait">Внимательность к деталям</div>
+            <div class="trait">Аналитическое мышление</div>
+            <div class="trait">Высокая компьютерная грамотность</div>
+            <div class="trait">Быстрая обучаемость</div>
+            <div class="trait">Усидчивость</div>
+            <div class="trait">Готовность к рутинным задачам</div>
+          </div>
+        </section>
+
+        <section class="main-card activity">
+          <h3 class="section-title"><span>Последовательное самообучение и практика</span><span class="label">Decorative Activity</span></h3>
+          <p class="text">Концептуальная визуализация регулярной практики: работа с инструментами, интерфейсами, сценариями тестирования и AI-сервисами.</p>
+          <div class="activity-grid" aria-hidden="true">
+            <span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span>
+            <span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+            <span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span>
+            <span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span>
+            <span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span>
+            <span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <h3 class="section-title" style="margin:0;"><span>Контакты</span><span class="label">Final Block</span></h3>
+          <div class="chip-grid">
+            <span class="chip">📞 +7 911 523-01-40</span>
+            <span class="chip">✉️ artempetrov0925@gmail.com</span>
+            <span class="chip">💬 @it_was_easy</span>
+            <span class="chip">📍 Вологда, Россия</span>
+          </div>
+          <p class="cta">Готов к удалённой работе, стажировке и выполнению тестового задания.</p>
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
