@@ -330,17 +330,24 @@
 
     .traits {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
     }
 
     .trait {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 10px 12px;
-      background: #fbfdff;
+      border: 1px solid #d7e2f1;
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      min-height: 84px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      box-shadow: 0 8px 22px rgba(31, 51, 85, 0.05);
       color: #2d3f5c;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      line-height: 1.35;
+      text-align: center;
+      display: grid;
+      place-items: center;
     }
 
     .focus-section {
@@ -449,10 +456,12 @@
       .content { order: 1; }
       .two-col { grid-template-columns: 1fr; }
       .focus-card .text { min-height: auto; }
+      .traits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 640px) {
       .focus-grid { grid-template-columns: 1fr; }
+      .traits { grid-template-columns: 1fr; }
     }
 
     @media print {
@@ -681,7 +690,7 @@
             <div class="trait">Высокая компьютерная грамотность</div>
             <div class="trait">Быстрая обучаемость</div>
             <div class="trait">Усидчивость</div>
-            <div class="trait">Готовность к рутинным задачам</div>
+            <div class="trait">Ответственный подход к задачам</div>
           </div>
         </section>
 
