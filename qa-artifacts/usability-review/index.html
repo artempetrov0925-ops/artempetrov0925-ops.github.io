@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usability Review — Петров Артем Николаевич</title>
+  <style>
+    :root { --bg:#f4f7fb; --card:#fff; --line:#dbe3ef; --text:#0f172a; --muted:#5b6f8e; --shadow:0 10px 30px rgba(15,23,42,.06); --radius-xl:22px; --radius-md:14px; }
+    *{box-sizing:border-box} body{margin:0;font-family:"Inter","Segoe UI","Roboto","Arial",sans-serif;color:var(--text);background:radial-gradient(circle at 8% 0%,#e8f0ff 0%,transparent 40%),radial-gradient(circle at 92% 0%,#edf2ff 0%,transparent 45%),var(--bg);line-height:1.5}
+    .page{max-width:980px;margin:0 auto;padding:28px 20px 34px}.head,.article{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--radius-xl)}
+    .head{padding:24px 26px;margin-bottom:18px;position:relative}.label{position:absolute;top:20px;right:24px;color:#6b7d98;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+    h1{margin:0 0 10px;font-size:clamp(1.4rem,2.7vw,2rem)} .intro{margin:0;color:#2e3d56;max-width:760px}.back{display:inline-flex;margin:14px 0 0;color:#264c97;text-decoration:none;font-weight:600}
+    .article{padding:18px;display:grid;gap:12px}.section{border:1px solid var(--line);border-radius:var(--radius-md);padding:14px;background:linear-gradient(180deg,#fff 0%,#fbfdff 100%)}
+    h2{margin:0 0 10px;font-size:1.04rem} h3{margin:10px 0 6px;font-size:.88rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em} p{margin:0;color:#30415e}
+    ul{margin:6px 0 0;padding-left:18px;color:#30415e}
+    @media (max-width:700px){.label{position:static;display:block;margin-bottom:8px}.head{padding:20px}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="head">
+    <span class="label">UX REVIEW</span>
+    <h1>Usability Review</h1>
+    <p class="intro">Краткий UX-анализ интерфейса веб-приложения с фокусом на удобство навигации, читаемость форм и понятность взаимодействий.</p>
+    <a class="back" href="../../index.html">← Назад к резюме</a>
+  </header>
+  <main class="article">
+    <article class="section"><h2>1. Navigation clarity</h2><h3>Observation</h3><p>Некоторые элементы навигации расположены слишком близко друг к другу.</p><h3>Problem</h3><p>Пользователь может случайно нажать на неправильный пункт меню.</p><h3>Recommendation</h3><p>Увеличить расстояние между элементами навигации и добавить визуальное разделение.</p></article>
+    <article class="section"><h2>2. Form readability</h2><h3>Observation</h3><p>Форма регистрации содержит большое количество полей без визуальной группировки.</p><h3>Problem</h3><p>Пользователю сложно быстро понять структуру формы.</p><h3>Recommendation</h3><p>Разделить форму на логические блоки:</p><ul><li>личные данные</li><li>контактная информация</li><li>пароль</li></ul></article>
+    <article class="section"><h2>3. Button hierarchy</h2><h3>Observation</h3><p>Основные и второстепенные кнопки выглядят одинаково.</p><h3>Problem</h3><p>Пользователь не понимает какое действие является главным.</p><h3>Recommendation</h3><p>Выделить primary action цветом и размером кнопки.</p></article>
+    <article class="section"><h2>4. Error messages</h2><h3>Observation</h3><p>Сообщения об ошибках отображаются только после отправки формы.</p><h3>Problem</h3><p>Пользователь не получает моментальную обратную связь.</p><h3>Recommendation</h3><p>Добавить inline validation при вводе данных.</p></article>
+    <article class="section"><h2>5. Mobile usability</h2><h3>Observation</h3><p>Некоторые кнопки слишком маленькие для мобильных устройств.</p><h3>Problem</h3><p>Пользователю трудно нажимать на элементы.</p><h3>Recommendation</h3><p>Увеличить минимальный размер кнопок до 44px.</p></article>
+  </main>
+</div>
+</body>
+</html>
