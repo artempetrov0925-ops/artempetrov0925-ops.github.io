@@ -399,17 +399,20 @@
       position: relative;
       overflow: hidden;
       isolation: isolate;
-      border-color: rgba(161, 185, 223, 0.65);
-      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+      border-color: rgba(157, 182, 223, 0.72);
+      background:
+        linear-gradient(164deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 249, 255, 0.95) 66%, rgba(239, 246, 255, 0.98) 100%),
+        radial-gradient(90% 70% at 8% 0%, rgba(166, 193, 237, 0.15) 0%, rgba(166, 193, 237, 0) 72%);
       box-shadow:
-        0 12px 28px rgba(31, 51, 85, 0.08),
-        0 0 0 1px rgba(95, 132, 214, 0.24),
-        0 0 0 6px rgba(128, 156, 219, 0.12);
+        0 12px 28px rgba(31, 51, 85, 0.09),
+        0 0 0 1px rgba(87, 126, 206, 0.26),
+        0 0 0 7px rgba(112, 145, 214, 0.1);
       transition:
         box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1),
         border-color 320ms cubic-bezier(0.22, 1, 0.36, 1),
         transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
-        background 320ms cubic-bezier(0.22, 1, 0.36, 1);
+        background 320ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 320ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .artifact-link .focus-card::before,
@@ -424,29 +427,34 @@
     .artifact-link .focus-card::before {
       padding: 1px;
       background:
-        linear-gradient(128deg,
-          rgba(120, 149, 216, 0.08),
-          rgba(108, 144, 223, 0.36) 34%,
-          rgba(255, 255, 255, 0.92) 50%,
-          rgba(109, 146, 225, 0.36) 66%,
-          rgba(120, 149, 216, 0.08));
-      background-size: 220% 220%;
-      background-position: 0% 48%;
-      animation: artifactBorderShimmer 9s linear infinite;
+        linear-gradient(126deg,
+          rgba(121, 151, 217, 0.12),
+          rgba(115, 149, 225, 0.42) 34%,
+          rgba(255, 255, 255, 0.9) 50%,
+          rgba(116, 151, 227, 0.42) 67%,
+          rgba(121, 151, 217, 0.12));
+      background-size: 230% 230%;
+      background-position: 8% 48%;
+      animation: artifactBorderShimmer 8.5s ease-in-out infinite;
       -webkit-mask:
         linear-gradient(#000 0 0) content-box,
         linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
-      opacity: 0.78;
+      opacity: 0.9;
       z-index: 2;
     }
 
     .artifact-link .focus-card::after {
       inset: 0;
-      border: 1px solid rgba(197, 213, 240, 0.72);
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.24), rgba(157, 184, 229, 0.08));
-      opacity: 0.55;
+      border: 1px solid rgba(191, 209, 238, 0.8);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.3), rgba(161, 189, 234, 0.1)),
+        linear-gradient(110deg, transparent 22%, rgba(255, 255, 255, 0.4) 46%, transparent 70%);
+      background-size: 100% 100%, 230% 100%;
+      background-position: 0 0, -130% 0;
+      animation: artifactSheenDrift 10.5s ease-in-out infinite;
+      opacity: 0.68;
       z-index: 1;
     }
 
@@ -454,24 +462,28 @@
     .artifact-link:focus-visible .focus-card {
       transform: translateY(-2px);
       border-color: rgba(144, 170, 216, 0.84);
-      background: linear-gradient(180deg, #ffffff 0%, #f1f6ff 100%);
+      background:
+        linear-gradient(164deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 246, 255, 0.96) 65%, rgba(235, 243, 255, 1) 100%),
+        radial-gradient(90% 70% at 8% 0%, rgba(166, 193, 237, 0.2) 0%, rgba(166, 193, 237, 0) 72%);
       box-shadow:
         0 16px 34px rgba(31, 51, 85, 0.12),
         0 0 0 1px rgba(78, 119, 202, 0.34),
         0 0 0 10px rgba(103, 137, 208, 0.16);
+      filter: saturate(1.05);
     }
 
     .artifact-link:hover .focus-card::before,
     .artifact-link:focus-visible .focus-card::before {
-      opacity: 0.98;
-      background-position: 82% 52%;
-      animation-duration: 7s;
+      opacity: 1;
+      background-position: 86% 52%;
+      animation-duration: 7.2s;
     }
 
     .artifact-link:hover .focus-card::after,
     .artifact-link:focus-visible .focus-card::after {
-      opacity: 0.82;
+      opacity: 0.84;
       border-color: rgba(161, 186, 228, 0.86);
+      animation-duration: 8.8s;
     }
 
     .artifact-link:active .focus-card {
@@ -489,10 +501,25 @@
 
     @keyframes artifactBorderShimmer {
       0% {
-        background-position: 0% 48%;
+        background-position: 8% 48%;
+      }
+      45% {
+        background-position: 92% 52%;
       }
       100% {
-        background-position: 220% 52%;
+        background-position: 8% 48%;
+      }
+    }
+
+    @keyframes artifactSheenDrift {
+      0% {
+        background-position: 0 0, -130% 0;
+      }
+      48% {
+        background-position: 0 0, 140% 0;
+      }
+      100% {
+        background-position: 0 0, 140% 0;
       }
     }
 
