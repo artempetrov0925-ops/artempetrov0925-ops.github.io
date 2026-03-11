@@ -6,17 +6,19 @@
   <title>Петров Артем Николаевич — IT Profile</title>
   <style>
     :root {
-      --bg: #f4f7fb;
-      --card: #ffffff;
-      --line: #dbe3ef;
-      --line-strong: #c9d4e6;
-      --text: #0f172a;
-      --muted: #55637a;
-      --soft: #6f7f98;
-      --accent: #295fce;
-      --accent-soft: #eaf1ff;
+      --bg: #0B0F1A;
+      --card: #121826;
+      --card-emphasis: #1F2A44;
+      --line: #27324a;
+      --line-strong: #334264;
+      --text: #E6E9F2;
+      --muted: #9AA3B2;
+      --soft: #7f8aa1;
+      --accent: #6A5CFF;
+      --accent-2: #8B7CFF;
+      --accent-soft: rgba(106, 92, 255, 0.16);
       --ok: #1f9d6b;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      --shadow: 0 12px 30px rgba(3, 6, 14, 0.45);
       --radius-xl: 22px;
       --radius-lg: 18px;
       --radius-md: 14px;
@@ -29,11 +31,8 @@
       margin: 0;
       font-family: "Inter", "Segoe UI", "Roboto", "Arial", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at 8% 0%, #e8f0ff 0%, transparent 40%),
-        radial-gradient(circle at 92% 0%, #edf2ff 0%, transparent 45%),
-        var(--bg);
-      line-height: 1.45;
+      background: radial-gradient(circle at 14% -10%, #151f3a 0%, transparent 42%), radial-gradient(circle at 88% -14%, #171935 0%, transparent 46%), var(--bg);
+      line-height: 1.6;
     }
 
     .page {
@@ -597,6 +596,166 @@
       box-shadow: var(--shadow);
     }
 
+    .hero,
+    .main-card,
+    .side-card,
+    .footer,
+    .exp-item,
+    .repo-card,
+    .trait,
+    .focus-card,
+    .contact-chip,
+    .chip {
+      background: var(--card);
+      border-color: var(--line);
+      color: var(--text);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after,
+    .focus-section::after,
+    .artifact-link .focus-card::before,
+    .artifact-link .focus-card::after {
+      display: none;
+    }
+
+    .title,
+    .hero-summary,
+    .text,
+    .list,
+    .repo-meta,
+    .chip,
+    .tag,
+    .cta,
+    .contact-chip,
+    .section-title .label,
+    .mini-title {
+      color: var(--muted);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .name-small,
+    .section-title,
+    .repo-card h4,
+    .focus-card h4,
+    .exp-item h4 {
+      color: var(--text);
+    }
+
+    .section-title {
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.08rem;
+    }
+
+    .chip.blue,
+    .tag,
+    .status {
+      background: var(--accent-soft);
+      border-color: rgba(139, 124, 255, 0.34);
+      color: #cec8ff;
+    }
+
+    .avatar,
+    .focus-icon {
+      background: #161f33;
+      border-color: var(--line-strong);
+      color: #d6dcff;
+    }
+
+    .repo-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 100%;
+      transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .repo-link {
+      text-decoration: none;
+      color: inherit;
+      border-radius: var(--radius-md);
+      display: flex;
+      min-height: 100%;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .repo-link:hover .repo-card,
+    .repo-link:focus-visible .repo-card {
+      transform: translateY(-3px);
+      border-color: rgba(139, 124, 255, 0.55);
+      background: var(--card-emphasis);
+      box-shadow: 0 14px 30px rgba(7, 10, 20, 0.55);
+    }
+
+    .repo-link:focus-visible .repo-card,
+    .artifact-link:focus-visible .focus-card,
+    .back:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 3px;
+    }
+
+    .card-cta {
+      margin-top: auto;
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(139, 124, 255, 0.6);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #f5f6ff;
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+
+    .repo-link:hover .card-cta,
+    .repo-link:focus-visible .card-cta,
+    .artifact-link:hover .card-cta,
+    .artifact-link:focus-visible .card-cta {
+      background: linear-gradient(135deg, #7d70ff, #9a8dff);
+    }
+
+    .artifact-link .focus-card {
+      transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+      background: var(--card);
+      border-color: var(--line);
+      box-shadow: var(--shadow);
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .artifact-link:hover .focus-card,
+    .artifact-link:focus-visible .focus-card {
+      transform: translateY(-3px);
+      border-color: rgba(139, 124, 255, 0.55);
+      background: var(--card-emphasis);
+      box-shadow: 0 14px 30px rgba(7, 10, 20, 0.55);
+      filter: none;
+    }
+
+    .back {
+      background: #1b2437;
+      border-color: var(--line-strong);
+      color: #d4dcf7;
+    }
+
+    .back:hover {
+      background: #242f47;
+      border-color: rgba(139, 124, 255, 0.48);
+      color: #ecefff;
+    }
+
     .cta {
       color: #28436f;
       font-weight: 600;
@@ -798,26 +957,38 @@
         <section class="main-card">
           <h3 class="section-title"><span>QA / Portfolio Blocks</span><span class="label">Practice Projects</span></h3>
           <div class="portfolio-grid">
-            <article class="repo-card">
-              <h4>Bug Reports Practice</h4>
-              <p class="text">Тренировочные баг-репорты с базовой QA-структурой: шаги, ожидаемый и фактический результат, приоритет.</p>
-              <div class="repo-meta"><span class="dot"></span> QA Practice</div>
-            </article>
-            <article class="repo-card">
-              <h4>Test Checklist</h4>
-              <p class="text">Чек-лист для ручного тестирования сайта: навигация, формы, валидация, адаптивность, базовые сценарии.</p>
-              <div class="repo-meta"><span class="dot"></span> Manual Testing</div>
-            </article>
-            <article class="repo-card">
-              <h4>Usability Review</h4>
-              <p class="text">Анализ интерфейса и удобства использования с фокусом на читаемость, UX-потоки и снижение ошибок пользователя.</p>
-              <div class="repo-meta"><span class="dot"></span> UX / UI</div>
-            </article>
-            <article class="repo-card">
-              <h4>Game Testing Notes</h4>
-              <p class="text">Наблюдения по UX и игровым интерфейсам: удобство HUD, логика экранов, понятность и последовательность действий.</p>
-              <div class="repo-meta"><span class="dot"></span> Game QA</div>
-            </article>
+            <a class="repo-link" href="qa-artifacts/bug-reports/" aria-label="Открыть Bug Reports Practice">
+              <article class="repo-card">
+                <h4>Bug Reports Practice</h4>
+                <p class="text">Тренировочные баг-репорты с базовой QA-структурой: шаги, ожидаемый и фактический результат, приоритет.</p>
+                <div class="repo-meta"><span class="dot"></span> QA Practice</div>
+                <span class="card-cta">Details</span>
+              </article>
+            </a>
+            <a class="repo-link" href="qa-artifacts/test-checklists/" aria-label="Открыть Test Checklist">
+              <article class="repo-card">
+                <h4>Test Checklist</h4>
+                <p class="text">Чек-лист для ручного тестирования сайта: навигация, формы, валидация, адаптивность, базовые сценарии.</p>
+                <div class="repo-meta"><span class="dot"></span> Manual Testing</div>
+                <span class="card-cta">Details</span>
+              </article>
+            </a>
+            <a class="repo-link" href="qa-artifacts/usability-review/" aria-label="Открыть Usability Review">
+              <article class="repo-card">
+                <h4>Usability Review</h4>
+                <p class="text">Анализ интерфейса и удобства использования с фокусом на читаемость, UX-потоки и снижение ошибок пользователя.</p>
+                <div class="repo-meta"><span class="dot"></span> UX / UI</div>
+                <span class="card-cta">Details</span>
+              </article>
+            </a>
+            <a class="repo-link" href="qa-artifacts/game-ui-analysis/" aria-label="Открыть Game Testing Notes">
+              <article class="repo-card">
+                <h4>Game Testing Notes</h4>
+                <p class="text">Наблюдения по UX и игровым интерфейсам: удобство HUD, логика экранов, понятность и последовательность действий.</p>
+                <div class="repo-meta"><span class="dot"></span> Game QA</div>
+                <span class="card-cta">Details</span>
+              </article>
+            </a>
           </div>
         </section>
 
@@ -924,6 +1095,7 @@
                   <span class="tag">Expected / Actual</span>
                   <span class="tag">Severity</span>
                 </div>
+                <span class="card-cta">Details</span>
               </article>
             </a>
 
@@ -939,6 +1111,7 @@
                   <span class="tag">Edge Cases</span>
                   <span class="tag">Regression</span>
                 </div>
+                <span class="card-cta">Details</span>
               </article>
             </a>
 
@@ -954,6 +1127,7 @@
                   <span class="tag">Clarity</span>
                   <span class="tag">Friction Points</span>
                 </div>
+                <span class="card-cta">Details</span>
               </article>
             </a>
 
@@ -969,6 +1143,7 @@
                   <span class="tag">Visual Hierarchy</span>
                   <span class="tag">Readability</span>
                 </div>
+                <span class="card-cta">Details</span>
               </article>
             </a>
           </div>
