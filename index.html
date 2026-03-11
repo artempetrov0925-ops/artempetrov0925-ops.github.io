@@ -114,9 +114,18 @@
       color: #22324a;
       font-size: 0.9rem;
       background: #fff;
+      min-width: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .contact-chip--email {
+      grid-column: span 2;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      text-overflow: clip;
+      font-size: 0.88rem;
     }
 
     .layout {
@@ -607,6 +616,7 @@
     @media (max-width: 640px) {
       .focus-grid { grid-template-columns: 1fr; }
       .traits { grid-template-columns: 1fr; }
+      .contact-chip--email { grid-column: span 1; }
     }
 
     @media print {
@@ -651,7 +661,7 @@
         <div class="contact-chip">📍 Вологда, Россия</div>
         <div class="contact-chip">💼 Полностью удалённо</div>
         <div class="contact-chip">📞 +7 911 523-01-40</div>
-        <div class="contact-chip">✉️ artempetrov0925@gmail.com</div>
+        <div class="contact-chip contact-chip--email">✉️ artempetrov0925@gmail.com</div>
         <div class="contact-chip">💬 Telegram: @it_was_easy</div>
       </div>
     </header>
