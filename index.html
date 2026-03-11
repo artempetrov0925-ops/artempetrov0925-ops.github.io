@@ -311,6 +311,32 @@
       gap: 4px;
     }
 
+    /* Readability fix: improve contrast and spacing only inside practical experience cards. */
+    .practical-experience .exp-item {
+      background: #182134;
+      border-color: #34425f;
+      box-shadow: 0 10px 24px rgba(3, 6, 14, 0.36);
+    }
+
+    /* Readability fix: make card titles brighter and visually separated from list content. */
+    .practical-experience .exp-item h4 {
+      color: #f2f5ff;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    /* Readability fix: increase body/list contrast and bullet spacing while preserving dark tone. */
+    .practical-experience .exp-item ul {
+      color: #c7d2eb;
+      line-height: 1.55;
+      gap: 7px;
+      padding-left: 20px;
+    }
+
+    .practical-experience .exp-item li::marker {
+      color: #9eb0d4;
+    }
+
     .repo-meta {
       margin-top: 10px;
       font-size: 0.8rem;
@@ -920,7 +946,7 @@
           </div>
         </section>
 
-        <section class="main-card">
+        <section class="main-card practical-experience">
           <h3 class="section-title"><span>Практический опыт</span><span class="label">Hands-on Practice</span></h3>
           <div class="exp-grid">
             <article class="exp-item">
