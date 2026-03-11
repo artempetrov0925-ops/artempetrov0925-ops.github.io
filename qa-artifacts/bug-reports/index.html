@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Баг-репорты — Петров Артем Николаевич</title>
+  <style>
+    :root { --bg:#f4f7fb; --card:#fff; --line:#dbe3ef; --text:#0f172a; --muted:#5b6f8e; --shadow:0 10px 30px rgba(15,23,42,.06); --radius-xl:22px; --radius-lg:18px; --radius-md:14px; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Inter","Segoe UI","Roboto","Arial",sans-serif;color:var(--text);background:radial-gradient(circle at 8% 0%,#e8f0ff 0%,transparent 40%),radial-gradient(circle at 92% 0%,#edf2ff 0%,transparent 45%),var(--bg);line-height:1.45}
+    .page{max-width:1120px;margin:0 auto;padding:28px 20px 34px}
+    .head,.block{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--radius-xl)}
+    .head{padding:24px 26px;margin-bottom:18px;position:relative}
+    .label{position:absolute;top:20px;right:24px;color:#6b7d98;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+    h1{margin:0 0 10px;font-size:clamp(1.4rem,2.7vw,2rem)}
+    .intro{margin:0;color:#2e3d56;max-width:820px}
+    .back{display:inline-flex;margin:14px 0 0;color:#264c97;text-decoration:none;font-weight:600}
+    .list{display:grid;gap:12px}
+    .item{padding:16px;border:1px solid var(--line);border-radius:var(--radius-md);background:linear-gradient(180deg,#fff 0%,#fbfdff 100%)}
+    .item h2{margin:0 0 10px;font-size:1.02rem}
+    .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-bottom:10px}
+    .meta-block{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#f9fbff}
+    .meta-title{margin:0 0 4px;color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+    .meta-text{margin:0;color:#22324a;font-size:.9rem}
+    .steps{margin:0;padding-left:18px;color:#30415e;font-size:.92rem}
+    .result{margin-top:10px;display:grid;gap:8px}
+    .result p{margin:0;color:#2e3d56}
+    .result strong{color:#1d2b42}
+    @media (max-width:700px){.label{position:static;display:block;margin-bottom:8px}.head{padding:20px}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="head">
+      <span class="label">BUG REPORTS</span>
+      <h1>Баг-репорты</h1>
+      <p class="intro">Подборка из 10 баг-репортов в едином формате: окружение, шаги воспроизведения, ожидаемый и фактический результат, а также оценка Severity и Priority.</p>
+      <a class="back" href="../../index.html">← Назад к резюме</a>
+    </header>
+
+    <main class="block" style="padding:18px;">
+      <section class="list">
+        <article class="item"><h2>1. Broken image displayed in the featured products section</h2><div class="meta"><div class="meta-block"><p class="meta-title">Environment</p><p class="meta-text">Browser: Edge 121<br>OS: Windows 11<br>Device: Desktop</p></div><div class="meta-block"><p class="meta-title">Severity / Priority</p><p class="meta-text">Severity: Low<br>Priority: Medium</p></div></div><p class="meta-title">Steps to Reproduce</p><ol class="steps"><li>Open the homepage</li><li>Scroll to the featured products section</li></ol><div class="result"><p><strong>Expected Result:</strong> All product images should load correctly.</p><p><strong>Actual Result:</strong> One of the product images is broken and shows a placeholder icon.</p></div></article>
+        <article class="item"><h2>2. Cart item quantity cannot be decreased using minus button</h2><div class="meta"><div class="meta-block"><p class="meta-title">Environment</p><p class="meta-text">Browser: Chrome 121<br>OS: Windows 10<br>Device: Desktop</p></div><div class="meta-block"><p class="meta-title">Severity / Priority</p><p class="meta-text">Severity: Medium<br>Priority: High</p></div></div><p class="meta-title">Steps to Reproduce</p><ol class="steps"><li>Add any product to the cart</li><li>Open the cart page</li><li>Click the minus button next to the item quantity</li></ol><div class="result"><p><strong>Expected Result:</strong> The quantity should decrease by one.</p><p><strong>Actual Result:</strong> Nothing happens when clicking the minus button.</p></div></article>
+        <article class="item"><h2>3. Empty contact form can be submitted without required field validation</h2><div class="meta"><div class="meta-block"><p class="meta-title">Environment</p><p class="meta-text">Browser: Chrome 121<br>OS: Windows 11<br>Device: Desktop</p></div><div class="meta-block"><p class="meta-title">Severity / Priority</p><p class="meta-text">Severity: High<br>Priority: High</p></div></div><p class="meta-title">Steps to Reproduce</p><ol class="steps"><li>Open the contact page</li><li>Leave all fields empty</li><li>Click the "Send" button</li></ol><div class="result"><p><strong>Expected Result:</strong> The form should prevent submission and show validation errors.</p><p><strong>Actual Result:</strong> The form is submitted without any validation messages.</p></div></article>
+        <article class="item"><h2>4. Dropdown menu does not close after selecting an option</h2><div class="meta"><div class="meta-block"><p class="meta-title">Environment</p><p class="meta-text">Browser: Chrome 121<br>OS: Windows 11<br>Device: Desktop</p></div><div class="meta-block"><p class="meta-title">Severity / Priority</p><p class="meta-text">Severity: Low<br>Priority: Medium</p></div></div><p class="meta-title">Steps to Reproduce</p><ol class="steps"><li>Open the filter section</li><li>Click the category dropdown</li><li>Select any option</li></ol><div class="result"><p><strong>Expected Result:</strong> The dropdown should close after the option is selected.</p><p><strong>Actual Result:</strong> The dropdown remains open.</p></div></article>
+        <article class="item"><h2>5. Login form accepts invalid email format</h2><div class="meta"><div class="meta-block"><p class="meta-title">Environment</p><p class="meta-text">Browser: Chrome 121<br>OS: Windows 10<br>Device: Desktop</p></div><div class="meta-block"><p class="meta-title">Severity / Priority</p><p class="meta-text">Severity: Medium<br>Priority: High</p></div></div><p class="meta-title">Steps to Reproduce</p><ol class="steps"><li>Open the login page</li><li>Enter <code>invalidemail</code> in the email field</li><li>Enter any password</li><li>Click "Login"</li></ol><div class="result"><p><strong>Expected Result:</strong> The system should display a validation error for invalid email format.</p><p><strong>Actual Result:</strong> The form is submitted without validation error.</p></div></article>
+        <article class="item"><h2>6. Submit button overlaps form text on mobile resolution</h2><div class="meta"><div class="meta-block"><p class="meta-title">Environment</p><p class="meta-text">Browser: Chrome 121<br>OS: Android 13<br>Device: Mobile<br>Resolution: 390x844</p></div><div class="meta-block"><p class="meta-title">Severity / Priority</p><p class="meta-text">Severity: Medium<br>Priority: Medium</p></div></div><p class="meta-title">Steps to Reproduce</p><ol class="steps"><li>Open the contact page on mobile</li><li>Scroll to the contact form</li><li>Observe the submit button and text fields</li></ol><div class="result"><p><strong>Expected Result:</strong> The button and text should be displayed correctly without overlap.</p><p><strong>Actual Result:</strong> The submit button overlaps nearby text and reduces readability.</p></div></article>
+        <article class="item"><h2>7. Password field remains visible after clicking hide icon</h2><div class="meta"><div class="meta-block"><p class="meta-title">Environment</p><p class="meta-text">Browser: Firefox 122<br>OS: Windows 11<br>Device: Desktop</p></div><div class="meta-block"><p class="meta-title">Severity / Priority</p><p class="meta-text">Severity: Medium<br>Priority: Medium</p></div></div><p class="meta-title">Steps to Reproduce</p><ol class="steps"><li>Open the registration page</li><li>Enter a password in the password field</li><li>Click the hide/show password icon</li></ol><div class="result"><p><strong>Expected Result:</strong> The password should become hidden.</p><p><strong>Actual Result:</strong> The password remains visible after clicking the icon.</p></div></article>
+        <article class="item"><h2>8. Footer link to Privacy Policy returns 404 page</h2><div class="meta"><div class="meta-block"><p class="meta-title">Environment</p><p class="meta-text">Browser: Chrome 121<br>OS: Windows 10<br>Device: Desktop</p></div><div class="meta-block"><p class="meta-title">Severity / Priority</p><p class="meta-text">Severity: Medium<br>Priority: Medium</p></div></div><p class="meta-title">Steps to Reproduce</p><ol class="steps"><li>Open the homepage</li><li>Scroll to the footer</li><li>Click the "Privacy Policy" link</li></ol><div class="result"><p><strong>Expected Result:</strong> The Privacy Policy page should open successfully.</p><p><strong>Actual Result:</strong> A 404 error page is displayed.</p></div></article>
+        <article class="item"><h2>9. Product page takes too long to load on first visit</h2><div class="meta"><div class="meta-block"><p class="meta-title">Environment</p><p class="meta-text">Browser: Chrome 121<br>OS: Windows 11<br>Device: Desktop<br>Network: Standard home internet</p></div><div class="meta-block"><p class="meta-title">Severity / Priority</p><p class="meta-text">Severity: Medium<br>Priority: Medium</p></div></div><p class="meta-title">Steps to Reproduce</p><ol class="steps"><li>Open the homepage</li><li>Click any product card</li><li>Measure page load time</li></ol><div class="result"><p><strong>Expected Result:</strong> The product page should load within 2–3 seconds.</p><p><strong>Actual Result:</strong> The product page loads in 7–8 seconds.</p></div></article>
+        <article class="item"><h2>10. Search button does not respond after entering text in the search field</h2><div class="meta"><div class="meta-block"><p class="meta-title">Environment</p><p class="meta-text">Browser: Chrome 121<br>OS: Windows 11<br>Device: Desktop</p></div><div class="meta-block"><p class="meta-title">Severity / Priority</p><p class="meta-text">Severity: Medium<br>Priority: High</p></div></div><p class="meta-title">Steps to Reproduce</p><ol class="steps"><li>Open the homepage</li><li>Enter any text in the search field</li><li>Click the "Search" button</li></ol><div class="result"><p><strong>Expected Result:</strong> Search results should appear.</p><p><strong>Actual Result:</strong> Nothing happens after clicking the "Search" button.</p></div></article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

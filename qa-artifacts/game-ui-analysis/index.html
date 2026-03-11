@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game UI Analysis — Петров Артем Николаевич</title>
+  <style>
+    :root { --bg:#f4f7fb; --card:#fff; --line:#dbe3ef; --text:#0f172a; --muted:#5b6f8e; --shadow:0 10px 30px rgba(15,23,42,.06); --radius-xl:22px; --radius-md:14px; }
+    *{box-sizing:border-box} body{margin:0;font-family:"Inter","Segoe UI","Roboto","Arial",sans-serif;color:var(--text);background:radial-gradient(circle at 8% 0%,#e8f0ff 0%,transparent 40%),radial-gradient(circle at 92% 0%,#edf2ff 0%,transparent 45%),var(--bg);line-height:1.5}
+    .page{max-width:980px;margin:0 auto;padding:28px 20px 34px}.head,.article{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--radius-xl)}
+    .head{padding:24px 26px;margin-bottom:18px;position:relative}.label{position:absolute;top:20px;right:24px;color:#6b7d98;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+    h1{margin:0 0 10px;font-size:clamp(1.4rem,2.7vw,2rem)} .intro{margin:0;color:#2e3d56;max-width:780px}.back{display:inline-flex;margin:14px 0 0;color:#264c97;text-decoration:none;font-weight:600}
+    .article{padding:18px;display:grid;gap:12px}.section{border:1px solid var(--line);border-radius:var(--radius-md);padding:14px;background:linear-gradient(180deg,#fff 0%,#fbfdff 100%)}
+    h2{margin:0 0 10px;font-size:1.04rem} h3{margin:10px 0 6px;font-size:.88rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em} p{margin:0;color:#30415e}
+    ul{margin:6px 0 0;padding-left:18px;color:#30415e}
+    .conclusion ul{margin-top:8px}
+    @media (max-width:700px){.label{position:static;display:block;margin-bottom:8px}.head{padding:20px}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="head">
+    <span class="label">GAME UI / DOTA 2</span>
+    <h1>Game UI Analysis</h1>
+    <p class="intro">Анализ игрового интерфейса Dota 2 с фокусом на читаемость HUD, доступность ключевой информации и влияние UI на игровой UX.</p>
+    <a class="back" href="../../index.html">← Назад к резюме</a>
+  </header>
+  <main class="article">
+    <article class="section"><h2>1. Ability Bar Readability</h2><h3>Observation</h3><p>Панель способностей героя расположена в нижней части экрана.</p><h3>UX Impact</h3><p>Игрок быстро видит доступные способности, их кулдауны и уровень прокачки.</p><h3>Recommendation</h3><p>Добавить более заметные визуальные сигналы окончания кулдауна (например, краткую анимацию или изменение цвета).</p></article>
+    <article class="section"><h2>2. Mini-map Visibility</h2><h3>Observation</h3><p>Миникарта расположена в левом нижнем углу экрана.</p><h3>UX Impact</h3><p>Позволяет отслеживать позиции союзников, варды и перемещения противников.</p><h3>Recommendation</h3><p>Улучшить визуальную заметность ключевых событий:</p><ul><li>более заметные сигналы появления врагов</li><li>усиленная визуализация важных пингов</li></ul></article>
+    <article class="section"><h2>3. Item Panel</h2><h3>Observation</h3><p>Инвентарь героя расположен справа от панели способностей.</p><h3>UX Impact</h3><p>Игрок может быстро активировать предметы и отслеживать кулдауны.</p><h3>Recommendation</h3><p>Сделать кулдауны предметов более контрастными или добавить дополнительную визуальную индикацию.</p></article>
+    <article class="section"><h2>4. Kill Notifications</h2><h3>Observation</h3><p>Уведомления о убийствах отображаются в верхней части экрана.</p><h3>UX Impact</h3><p>Игрок получает информацию о событиях на карте.</p><h3>Recommendation</h3><p>Добавить возможность увеличить время отображения уведомлений в настройках интерфейса.</p></article>
+    <article class="section"><h2>5. Shop Interface</h2><h3>Observation</h3><p>Магазин открывается в правой части экрана.</p><h3>UX Impact</h3><p>Игрок может быстро находить предметы по категориям и рекомендуемым сборкам.</p><h3>Recommendation</h3><p>Упростить навигацию для новичков:</p><ul><li>добавить больше фильтров</li><li>улучшить систему рекомендованных сборок</li></ul></article>
+    <article class="section conclusion"><h2>Conclusion</h2><p>Интерфейс Dota 2 содержит большое количество информации и в целом хорошо оптимизирован для опытных игроков.</p><h3>Основные преимущества</h3><ul><li>высокая информативность HUD</li><li>быстрый доступ к способностям и предметам</li><li>удобная миникарта</li></ul><h3>Возможные улучшения</h3><ul><li>усиление визуальных сигналов</li><li>улучшение читаемости кулдаунов</li><li>упрощение интерфейса магазина для новичков</li></ul></article>
+  </main>
+</div>
+</body>
+</html>
